@@ -62,10 +62,10 @@ void parseInstr()
         switch(opCodeMap[op]) {
             case 0x0:
                 switch(functMap[op]) {
-                    case 0x00: case 0x03:
-                        _instruction |= (atoi(args[1]) & 0x1f) << 21;
-                        _instruction |= (atoi(args[0]) & 0x1f) << 16;
-                        _instruction |= (atoi(args[2]) & 0x1f) << 11;
+                    case 0x00: case 0x02: case 0x03:
+                        _instruction |= (atoi(args[1]) & 0x1f) << 16;
+                        _instruction |= (atoi(args[0]) & 0x1f) << 11;
+                        _instruction |= (atoi(args[2]) & 0x1f) << 6;
                         _instruction |= functMap[op];
                         printf("[R] %s rt: %d rd: %d c: %d \n", op, atoi(args[1]), atoi(args[0]), atoi(args[2]));
                         break;
@@ -144,6 +144,7 @@ void iimagesetup()
         
         labelMap[label_name.s] = instr_cnt++;
         instr.push_back(_instr);
+        printf("%s\n", _instr.s);
     }
     printf("Total Instructions : %d\n", instr_cnt);
 
