@@ -8,7 +8,10 @@
 using namespace std;
 
 typedef unsigned int UINT32;
-struct str{ char s[100]; str() { memset(s, 0, sizeof(s)); } };
+struct str{ 
+    char s[100]; 
+    str() { memset(s, 0, sizeof(s)); } 
+};
 
 map<string, int> regMap;
 map<string, UINT32> opCodeMap;
@@ -141,7 +144,7 @@ void iimagesetup()
         str label_name, _instr;
         strcpy(label_name.s, strtok(buf, " "));
         strcpy(_instr.s, strtok(NULL, "\n"));
-        
+  
         labelMap[label_name.s] = instr_cnt++;
         instr.push_back(_instr);
         printf("%s\n", _instr.s);
