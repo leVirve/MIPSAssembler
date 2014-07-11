@@ -130,8 +130,8 @@ void parseInstr()
 
 void iimagesetup()
 {
-    I_input = fopen("I_image.txt", "r");
-    I_output = fopen("iimage.txt", "wb");
+    I_input = fopen("iimage.in", "r");
+    I_output = fopen("iimage.bin", "wb");
 
     if(I_input == NULL) throw "I_image text file not found";
     
